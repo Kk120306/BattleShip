@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
-    entry: "./src/js/index.js",
+    entry: "./src/index.js",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
@@ -22,9 +22,10 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: ['node_modules'],
-                use: ['babel-loader'],
-            }, {
+                exclude: path.resolve(__dirname, 'node_modules'), // Exclude node_modules
+                use: [], // Remove Babel loader
+            },
+            {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
@@ -48,15 +49,15 @@ module.exports = {
     },
     resolve: {
         alias: {
-          config$: './configs/app-config.js',
-          react: './vendor/react-master',
+            config$: './configs/app-config.js',
+            react: './vendor/react-master',
         },
         extensions: ['.js', '.jsx'],
         modules: [
-          'node_modules',
-          'bower_components',
-          'shared',
-          '/shared/vendor/modules',
+            'node_modules',
+            'bower_components',
+            'shared',
+            '/shared/vendor/modules',
         ],
-      },
+    },
 };

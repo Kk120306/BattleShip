@@ -3,6 +3,7 @@ class Gameboard {
         this.board = Array(10).fill().map(() => Array(10).fill(null));
         this.missedShots = [];
         this.ships = [];
+        this.attemptedPos = [];
     }
 
     placeOnBoard(x, y, ship, direction) {
@@ -29,12 +30,19 @@ class Gameboard {
     recieveAttack(coordinates) {
         const [x, y] = coordinates;
         const shipAtPosition = this.board[x][y];
-        
+
+        if (this.attemptedPos.some(([px, py]) => px === x && py === y)) {
+            console.log("You have already hit a ship at this position!");
+            return;
+        }
+
         if (shipAtPosition) {
             shipAtPosition.hit();
         } else {
             this.missedShots.push(coordinates);
         }
+
+        this.attemptedPos.push(coordinates);
     }
 
     allSunk() {

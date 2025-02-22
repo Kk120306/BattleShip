@@ -1,4 +1,4 @@
-const Ship = require('../js/Ship.js');
+const Ship = require('../factory/Ship.js');
 
 test('hit() increments the hits property', () => {
     const ship = new Ship(4);

@@ -17,7 +17,7 @@ class Ship {
     }
 
     isSunk() {
-        return this.sunken;
+        return this.hits >= this._length;
     }
 }
 
