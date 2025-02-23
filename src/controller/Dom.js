@@ -52,6 +52,8 @@ export function placePlayerShips(player) {
 
     const setupModal = document.querySelector('.setup-modal');
     const computerGrid = document.querySelector('.computer');
+    const shipName = document.querySelector('.ship-name');
+    const instructionText = document.querySelector('.instruction-text');
 
     const rotateBtn = document.getElementById('rotate');
     rotateBtn.addEventListener('click', () => {
@@ -71,18 +73,21 @@ export function placePlayerShips(player) {
 
         if (player.gameBoard.placeOnBoard(x, y, currentShip, direction)) {
             console.log(`${currentShip.name} placed successfully!`);
+            shipName.innerText = `${currentShip.name} placed successfully!`
             
             renderPlayerGrid(player);
             
             if (ships.length > 0) {
                 currentShip = ships.pop();
                 console.log(`Ready to place ${currentShip.name}`);
+                shipName.innerText = `Ready to place ${currentShip.name}`;
                 attachEventListeners();
             } else {
                 console.log("All ships placed!");
                 setupModal.style.display = "none";
                 computerGrid.classList.toggle("hidden");
-                return;
+                instructionText.innerText = "";
+                return true;
             }
         } else {
             console.log("Invalid placement. Out of bounds or interference with another ship.");
