@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BattleShip</title>
 </head>
+
 <body>
     <div class="header">
-    
+
     </div>
 
     <div class="game">
         <div class="instructions">
             <p>Click on a square and place your ships!</p>
         </div>
-
         <div class="game-grids">
-            <div class="player-grid">
-
+            <div class="player">
+                <h2>Player</h2>
+                <div class="player-grid">
+                </div>
             </div>
-            <div class="computer-grid">
-    
+            <div class="computer hidden">
+                <h2>Computer</h2>
+                <div class="computer-grid">
+                </div>
+            </div>
+
+            <div class="setup-modal">
+                <img src="./assets/ship.png" alt="ship" id="ship-icon">
+                <p class="inst-text">Place your ships on the grid</p>
+                <p class="direction-text"></p>
+                <button id="rotate">Rotate</button>
             </div>
         </div>
     </div>
 </body>
+
 </html>
