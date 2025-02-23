@@ -7,4 +7,7 @@ const computer = new Player("AI", true);
 
 renderPlayerGrid(player);
 placePlayerShips(player);
+computer.populateComputerGrid();
+console.log(player.gameBoard.board);
+console.log(computer.gameBoard.board);
 renderComputerGrid(computer);

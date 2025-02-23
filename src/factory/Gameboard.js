@@ -8,24 +8,28 @@ class Gameboard {
 
     placeOnBoard(x, y, ship, direction) {
         if (direction === 'right') {
-            if (y + ship._length > 10) return false;  
+            if (y + ship._length > 10) return false;
             for (let i = 0; i < ship._length; i++) {
                 if (this.board[x][y + i] !== null) return false;
+            }
+            for (let i = 0; i < ship._length; i++) {
                 this.board[x][y + i] = ship;
             }
         } else if (direction === 'down') {
-            if (x + ship._length > 10) return false;  
+            if (x + ship._length > 10) return false;
             for (let i = 0; i < ship._length; i++) {
                 if (this.board[x + i][y] !== null) return false;
+            }
+            for (let i = 0; i < ship._length; i++) {
                 this.board[x + i][y] = ship;
             }
         } else {
             return false;
         }
-
         this.ships.push(ship);
         return true;
     }
+
 
     recieveAttack(coordinates) {
         const [x, y] = coordinates;
