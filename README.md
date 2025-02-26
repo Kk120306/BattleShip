@@ -6,7 +6,7 @@ Play against a computer opponent and try to sink all their ships before they sin
 # 📦 Installation
 
 Follow these steps to set up and run the game locally:
-
+```
 # Clone the repository
 git clone https://github.com/Kk120306/BattleShip.git
 
@@ -21,6 +21,7 @@ npm start
 
 Once the server is running, the game should open automatically in your default browser.
 If not, manually visit: http://localhost:3000
+```
 
 # 🎮 How to Play
 
