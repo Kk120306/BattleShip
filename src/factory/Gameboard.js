@@ -31,23 +31,27 @@ class Gameboard {
     }
 
 
-    recieveAttack(coordinates) {
-        const [x, y] = coordinates;
-        const shipAtPosition = this.board[x][y];
-
+    receiveAttack(x, y) {
+        let wasAttacked = false;
+    
         if (this.attemptedPos.some(([px, py]) => px === x && py === y)) {
             console.log("You have already hit a ship at this position!");
-            return;
+            return false; 
         }
 
-        if (shipAtPosition) {
+        const shipAtPosition = this.board[x][y];
+    
+        if (shipAtPosition && typeof shipAtPosition.hit === "function") {
             shipAtPosition.hit();
+            wasAttacked = true;
         } else {
-            this.missedShots.push(coordinates);
+            this.missedShots.push([x, y]); 
         }
-
-        this.attemptedPos.push(coordinates);
+    
+        this.attemptedPos.push([x, y]); 
+        return wasAttacked;
     }
+    
 
     allSunk() {
         console.log('Checking if all ships are sunk...');
