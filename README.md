@@ -31,11 +31,10 @@ If not, manually visit: http://localhost:3000
 
 # 🛠️ Technologies Used
 
-## Frontend: JavaScript, HTML, CSS
+- Frontend: JavaScript, HTML, CSS
+- Backend: Node.js (for local server setup)
 
-## Backend: Node.js (for local server setup)
-
-#📜 License
+## 📜 License
 
 This project is licensed under the MIT License.
 
